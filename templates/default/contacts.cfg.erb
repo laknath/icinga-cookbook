@@ -26,7 +26,6 @@ define contactgroup {
 define contact {
   use          default-contact
   contact_name <%= a['id'] %>
-  email        <%= a['icinga']['email'] %>
+  email        <%= (a['icinga'] && a['icinga']['email']) || node['icinga']['sysadmin_email'] %>
 }
-
 <% end -%>
